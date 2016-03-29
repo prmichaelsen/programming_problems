@@ -1,4 +1,6 @@
-##
+from sys import exit
+
+
 ## The code below solves Steven Halim's CP3
 ## potentionmeter problem (CP3 p12086)
 ##
@@ -32,13 +34,13 @@ def update ( i , value , binex ) :
 				i = get_next(i) 
 
 ## traverses from node j until
-## node i is reached, summating
+## node 0 is reached, summating
 ## partial sums along the way
-def get_sum ( i , j , binex ) :
+def get_sum ( j , binex ) :
 		
 		sum = 0
 
-		while  j >= i :
+		while  j > 0 :
 				sum += binex[j]
 				j = get_parent(j)
 
@@ -56,8 +58,12 @@ def get_sum ( i , j , binex ) :
 ## $2 - the index of the potmeter
 ## to be measured from the right
 
-def measure ( param, binex ) : 
-		print( get_sum ( int(param[0]) , int(param[1]) , binex ) )  
+def measure ( param, binex , values) : 
+		## $1 - 1 allows for measurement from left
+		sum_high = get_sum( int( param[1] ) , binex )
+		sum_low = get_sum( int( param[0] ) - 1 , binex )
+		print( sum_high - sum_low )  
+		
 
 
 ## defines a command for setting 
@@ -71,17 +77,29 @@ def measure ( param, binex ) :
 ## $2 - the value to set potmeter
 ## to
 
-def set ( param, binex ) :
+def set ( param, binex , values) :
 		
 		i = int( param[0] )
-		value = int( param[1] )
+		new_value = int( param[1] )
+		old_value = values[i]
+		values[i] = new_value
 
-		update ( i , value - binex[i] , binex )
+		update ( i , new_value - old_value , binex )
+
+def print_binex ( param, binex , values) : 
+		print(binex)
+
+def quit( param, binex , values) :
+		exit()
 
 def main():
 
 	## command map
-	commands = {'S' :  set , 'M' : measure }
+	commands = { 
+					'S' :  set ,
+					'M' : measure,
+					'P' : print_binex,
+					'Q' : quit }
 
 	run = True
 	case = 0
@@ -101,9 +119,12 @@ def main():
 			print("Case %d:" % case ) 
 
 			binex = [0]*(N+1)
+			values = [0]*(N+1)
 
 			for i in range(1,N+1):
-					update ( i , int(input()) , binex)
+					value = int( input() )
+					update ( i , value , binex)
+					values[i] = value
 
 			test = True
 
@@ -117,6 +138,6 @@ def main():
 					if command == "END" :
 							test = False
 					else:
-						commands[ command ]( parameters ,  binex )
+						commands[ command ]( parameters ,  binex , values)
 					
 main()
