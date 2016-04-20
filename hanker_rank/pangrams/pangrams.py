@@ -3,6 +3,7 @@
 
 ## Author: Patrick Michaelsen 
 ## Email: patrickmichaelsen@patrickmichaelsen.com
+##	  michaelsenpatrick@gmail.com
 ## Website: patrickmichaelsen.com
 ## Description : uses bitmasks to find pangram
 
