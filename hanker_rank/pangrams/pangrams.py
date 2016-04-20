@@ -1,11 +1,20 @@
 ## solution to hanker rank's pangram problem
 ## URL : https://www.hackerrank.com/challenges/pangrams/submissions/code/18846135
 
-## Author: Patrick Michaelsen 
-## Email: patrickmichaelsen@patrickmichaelsen.com
-##	  michaelsenpatrick@gmail.com
-## Website: patrickmichaelsen.com
-## Description : uses bitmasks to find pangram
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
+##									##
+## 	Author: 	Patrick Michaelsen 				##
+##									##
+## 	Email: 		patrickmichaelsen@patrickmichaelsen.com		##
+##	  		michaelsenpatrick@gmail.com			##
+##									##
+##	Website: 	patrickmichaelsen.com				##
+## 									##
+## 	Description:	uses bitmasks to find pangram			##
+##			pangrams are sentences which use every		##
+##			letter of the alphabet.				##
+##									##
+## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##
 
 def find( sentence ):
 
