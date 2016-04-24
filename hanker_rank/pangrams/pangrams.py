@@ -38,11 +38,15 @@ def find( sentence ):
 				if 'a' <= current_character and current_character <= 'z':
 
 						## turn on n'th bit
-						sentence_mask |= 1 <<  ( ord( current_character ) - ord('a') )  
+						sentence_mask |= 1 <<  ( ord( current_character ) - ord('a') )
+				## check if a pangram
+				## if yes, return True, no check remain letters needed.
+				if sentence_mask == pan_mask:
+					return True
 
-		## if pan_mask == sentence_mask then 
-		## it is a pangram
-		return sentence_mask == pan_mask
+		## if check all letters, then
+		## it is not a pangram
+		return False
 
 pangram = find ( input () ) 
 

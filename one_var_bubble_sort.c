@@ -20,7 +20,7 @@ int main()
 {
 
 	//************************************************************************//
-	//	END INITIALIZATION						  //
+	//	BEGIN INITIALIZATION						  //
 	//************************************************************************//
 	//	This code is considered preparatory and is not
 	//	part of the algorithm. 
